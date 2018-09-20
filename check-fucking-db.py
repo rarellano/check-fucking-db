@@ -8,10 +8,6 @@ from settings import url, logfile, cmd
 r = requests.get(url, allow_redirects=True)
 logging.basicConfig(filename=logfile, level=logging.ERROR)
 
-print(url)
-print(logfile)
-print(cmd)
-
-#if r.status_code == 500:
-#    logging.error(" [status code 500] " + asctime(localtime()))
-#    subprocess.call(cmd, shell=True)
+if r.status_code == 500:
+    logging.error(" [status code 500] " + asctime(localtime()))
+    subprocess.call(cmd, shell=True)
